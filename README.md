@@ -1,5 +1,11 @@
 # React-shop-cloudfront
 
+## Task 2 results
+
+| CloudFront URL | S3 Website |
+|----------------|------------|
+| https://d39xtnt85d6o4f.cloudfront.net | https://my-sheep-store-bucket.s3.eu-west-2.amazonaws.com |
+
 This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
 
 - [Vite](https://vitejs.dev/) as a project bundler
