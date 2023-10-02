@@ -1,13 +1,14 @@
-service: my-store-app
+org: slimtiexxx
+app: sls-sheep-store
+service: sls-sheep-store
 
 frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs14.x
-  region: eu-west-1
-  # setup profile for AWS CLI.
-  # profile: node-aws
+  region: eu-west-2
+  profile: default
 
 plugins:
   - serverless-finch
@@ -19,7 +20,7 @@ plugins:
 
 custom:
   client:
-    bucketName: my-store-app
+    bucketName: my-sheep-store-bucket
     distributionFolder: dist
   s3BucketName: ${self:custom.client.bucketName}
 
@@ -29,6 +30,7 @@ custom:
     buckets:
       - ${self:custom.client.bucketName}
 
+
 resources:
   Resources:
     ## Specifying the S3 Bucket
@@ -36,7 +38,6 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:custom.s3BucketName}
-        AccessControl: PublicRead
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: index.html
