@@ -17,7 +17,8 @@ const initialValues: AvailableProduct = AvailableProductSchema.cast({});
 
 export default function PageProductForm() {
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
+  const { id: idString } = useParams<{ id: string }>();
+  const id = Number(idString);
   const invalidateAvailableProducts = useInvalidateAvailableProducts();
   const removeProductCache = useRemoveProductCache();
   const { data, isLoading } = useAvailableProduct(id);

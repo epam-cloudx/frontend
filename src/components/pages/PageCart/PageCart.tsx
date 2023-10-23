@@ -60,10 +60,11 @@ export default function PageCart() {
     }
     const values = {
       items: data.map((i) => ({
-        productId: i.product.id,
+        productId: String(i.product.id),
         count: i.count,
       })),
       address,
+      statusHistory: [],
     };
 
     submitOrder(values as Omit<Order, "id">, {
